@@ -57,8 +57,10 @@ Backend: Server-side language like Python (Django/Flask), Java (Spring Boot), or
 Database: MySQL, PostgreSQL, or MongoDB for storing user and vehicle data.
 Hosting: Cloud service (AWS, Azure, or Google Cloud) or on-premise servers.
 This combination ensures a reliable, secure, and efficient car rental system suitable for users and administrators.
-
 #Here is the screenshot of the output.
+
+
+
 ![WhatsApp Image 2024-12-07 at 01 44 11_817d3f0e](https://github.com/user-attachments/assets/521ff351-6711-40f8-974f-e09889736f54)
 
 
