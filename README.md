@@ -1,4 +1,5 @@
-![WhatsApp Image 2024-12-07 at 01 44 11_817d3f0e](https://github.com/user-attachments/assets/9601aa9e-c83f-447b-a276-7915d3da1aa6)# Car-rental-system.
+![WhatsApp Image 2024-12-07 at 01 44 11_817d3f0e](https://github.com/user-attachments/assets/9601aa9e-c83f-447b-a276-7915d3da1aa6)
+# Car-rental-system.
 A car rental system is a software application designed to streamline the process of renting vehicles. This system can be implemented as a web application, mobile app, or desktop software, catering to diverse user needs.
 The system provides comprehensive user management, allowing customers to register, log in, and manage profiles, while administrators oversee user accounts. Vehicle inventory management ensures that available cars are listed with detailed specifications, pricing, and real-time availability updates. Customers can easily browse vehicles, make reservations, and pay securely through integrated payment gateways.
 1. Functional Requirements
