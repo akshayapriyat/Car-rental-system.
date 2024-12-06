@@ -1,0 +1,172 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
+class Car {
+    String plateNumber;
+    String model;
+    boolean isRented;
+
+    Car(String plateNumber, String model) {
+        this.plateNumber = plateNumber;
+        this.model = model;
+        this.isRented = false;
+    }
+
+    @Override
+    public String toString() {
+        return model + " (" + plateNumber + ") - " + (isRented ? "Rented" : "Available");
+    }
+}
+
+public class CarRentalSystem extends JFrame implements ActionListener {
+    private List<Car> cars;
+    private JTextField plateNumberField, modelField;
+    private JTextArea displayArea;
+
+    public CarRentalSystem() {
+        cars = new ArrayList<>();
+        createGUI();
+    }
+
+    private void createGUI() {
+        setTitle("Car Rental System");
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+
+        JLabel plateNumberLabel = new JLabel("Plate Number:");
+        plateNumberLabel.setBounds(20, 20, 120, 30);
+        add(plateNumberLabel);
+
+        plateNumberField = new JTextField();
+        plateNumberField.setBounds(150, 20, 200, 30);
+        add(plateNumberField);
+
+        JLabel modelLabel = new JLabel("Model:");
+        modelLabel.setBounds(20, 60, 120, 30);
+        add(modelLabel);
+
+        modelField = new JTextField();
+        modelField.setBounds(150, 60, 200, 30);
+        add(modelField);
+
+        JButton addButton = new JButton("Add Car");
+        addButton.setBounds(370, 20, 100, 30);
+        addButton.addActionListener(this);
+        add(addButton);
+
+        JButton rentButton = new JButton("Rent Car");
+        rentButton.setBounds(20, 100, 100, 30);
+        rentButton.addActionListener(this);
+        add(rentButton);
+
+        JButton returnButton = new JButton("Return Car");
+        returnButton.setBounds(140, 100, 120, 30);
+        returnButton.addActionListener(this);
+        add(returnButton);
+
+        JButton viewButton = new JButton("View Cars");
+        viewButton.setBounds(280, 100, 120, 30);
+        viewButton.addActionListener(this);
+        add(viewButton);
+
+        JButton exitButton = new JButton("Exit");
+        exitButton.setBounds(420, 100, 100, 30);
+        exitButton.addActionListener(this);
+        add(exitButton);
+
+        displayArea = new JTextArea();
+        displayArea.setBounds(20, 150, 500, 200);
+        displayArea.setEditable(false);
+        add(displayArea);
+    }
+
+    public static void main(String[] args) {
+        CarRentalSystem crs = new CarRentalSystem();
+        crs.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        switch (command) {
+            case "Add Car":
+                addCar();
+                break;
+            case "Rent Car":
+                rentCar();
+                break;
+            case "Return Car":
+                returnCar();
+                break;
+            case "View Cars":
+                viewCars();
+                break;
+            case "Exit":
+                System.exit(0);
+                break;
+        }
+    }
+
+    private void addCar() {
+        String plateNumber = plateNumberField.getText();
+        String model = modelField.getText();
+        if (!plateNumber.isEmpty() && !model.isEmpty()) {
+            cars.add(new Car(plateNumber, model));
+            displayArea.setText("Car added successfully.\n");
+            clearFields();
+        } else {
+            displayArea.setText("Please enter both plate number and model.\n");
+        }
+    }
+
+    private void rentCar() {
+        String plateNumber = plateNumberField.getText();
+        for (Car car : cars) {
+            if (car.plateNumber.equals(plateNumber)) {
+                if (!car.isRented) {
+                    car.isRented = true;
+                    displayArea.setText("Car rented successfully.\n");
+                    return;
+                } else {
+                    displayArea.setText("Car is already rented.\n");
+                    return;
+                }
+            }
+        }
+        displayArea.setText("Car not found.\n");
+    }
+
+    private void returnCar() {
+        String plateNumber = plateNumberField.getText();
+        for (Car car : cars) {
+            if (car.plateNumber.equals(plateNumber)) {
+                if (car.isRented) {
+                    car.isRented = false;
+                    displayArea.setText("Car returned successfully.\n");
+                    return;
+                } else {
+                    displayArea.setText("Car is not currently rented.\n");
+                    return;
+                }
+            }
+        }
+        displayArea.setText("Car not found.\n");
+    }
+
+    private void viewCars() {
+        StringBuilder sb = new StringBuilder("Available Cars:\n");
+        for (Car car : cars) {
+            sb.append(car.toString()).append("\n");
+        }
+        displayArea.setText(sb.toString());
+    }
+
+    private void clearFields() {
+        plateNumberField.setText("");
+        modelField.setText("");
+    }
+}
