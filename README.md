@@ -1,4 +1,3 @@
-![WhatsApp Image 2024-12-07 at 01 44 11_817d3f0e](https://github.com/user-attachments/assets/9601aa9e-c83f-447b-a276-7915d3da1aa6)
 # Car-rental-system.
 A car rental system is a software application designed to streamline the process of renting vehicles. This system can be implemented as a web application, mobile app, or desktop software, catering to diverse user needs.
 The system provides comprehensive user management, allowing customers to register, log in, and manage profiles, while administrators oversee user accounts. Vehicle inventory management ensures that available cars are listed with detailed specifications, pricing, and real-time availability updates. Customers can easily browse vehicles, make reservations, and pay securely through integrated payment gateways.
@@ -59,6 +58,7 @@ Database: MySQL, PostgreSQL, or MongoDB for storing user and vehicle data.
 Hosting: Cloud service (AWS, Azure, or Google Cloud) or on-premise servers.
 This combination ensures a reliable, secure, and efficient car rental system suitable for users and administrators.
 
+#Here is the screenshot of the output.
 ![WhatsApp Image 2024-12-07 at 01 44 11_817d3f0e](https://github.com/user-attachments/assets/521ff351-6711-40f8-974f-e09889736f54)
 
 
